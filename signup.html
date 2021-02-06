@@ -1,0 +1,97 @@
+<html>
+
+<head>
+<title>My form</title>
+
+</head>
+
+<body>
+
+<form>
+<table border='1'>
+  <tr><td>Name:</td><td><input type='text' name='name' id='name' onkeyup='signup()' /></td><td><div id='mname'></div></td></tr>
+  <tr><td>Last Name:</td><td><input type='text' name='lname' id='lname' onkeyup='signup()' /></td><td><div id='mlname'></div></td></tr>
+  <tr><td>Username:</td><td><input type='text' name='uname' id='uname' onkeyup='signup()' /></td><td><div id='muname'></div></td></tr>
+  <tr><td>Email:</td><td><input type='text' name='email' id='email' onkeyup='signup()' /></td><td><div id='memail'></div></td></tr>
+  <tr><td>Password:</td><td><input type='password' name='password' id='password' onkeyup='signup()' /></td><td><div id='mpassword'></div></td></tr>
+  <tr><td>Confirm Password:</td><td><input type='password' name='cpassword' id='cpassword' onkeyup='pass()' /></td><td><div id='mcpassword'></div></td></tr>
+</table>
+<button type="submit" value="submit" onclick="alert('Welcome!')" style="background-color:green;
+color:white; margin-left: 100px">Sign Up</button>
+
+<div><a href="index.html" style="text-decoration: none; color: black"><h2 style="text-align: center; border: 1px solid gray">Home</h2></a></div>
+
+</form>
+
+<script>
+
+function signup()
+{
+var x = new Array();
+x[0] = document.getElementById('name').value;
+x[1] = document.getElementById('lname').value;
+x[2] = document.getElementById('uname').value;
+x[3] = document.getElementById('email').value;
+x[4] = document.getElementById('password').value;
+x[5] = document.getElementById('cpassword').value;
+
+
+var h = new Array();
+h[0] = "<span style='color:red'>Please enter your name!</span>";
+h[1] = "<span style='color:red'>Please enter your last name!</span>";
+h[2] = "<span style='color:red'>Please enter your Username"
+h[3] = "<span style='color:red'>Please enter your email!</span>";
+h[4] = "<span style='color:red'>Please enter your password!</span>";
+h[5] = "<span style='color:red'>Please confirm your password!</span>";
+
+var divs = new Array('mname', 'mlname', 'muname', 'memail', 'mpassword', 'mcpassword');
+
+for(i in x)
+{
+  var error = h[i];
+  var div = divs[i];
+  
+  if(x[i]=="")
+  {
+   document.getElementById(div).innerHTML = error;
+  }
+  else
+  {
+    document.getElementById(div).innerHTML = 'OK';
+  }
+}
+
+
+}
+
+
+function pass()
+{
+ var first = document.getElementById('password').value;
+ var second = document.getElementById('cpassword').value;
+ 
+ if(second==first)
+ {
+ document.getElementById('mcpassword').innerHTML = 'OK';
+ }
+ else{
+ document.getElementById('mcpassword').innerHTML = "<span style='color:red'>Your Passwords dont match!</span>"
+}
+}
+
+</script>
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>
